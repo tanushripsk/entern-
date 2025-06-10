@@ -36,7 +36,7 @@ function Kids() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  const whatsappNumber = '+916398542286';
+  const whatsappNumber = '+916398542386';
   const whatsappMessage = encodeURIComponent('Hi, I want to know more about Engtern!');
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

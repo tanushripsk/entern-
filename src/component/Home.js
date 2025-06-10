@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
-import heroImg from "../asset/video/Untitled design.gif";
+import heroImg from "../asset/img/hero section.png";
 import englishImg from "../asset/img/englishhhh.png";
 import img1 from "../asset/img/slider1.jpg";
 import img2 from "../asset/img/slider2.jpg";
@@ -11,6 +13,7 @@ import img4 from "../asset/img/slider4.jpg";
 import img5 from "../asset/img/slider5.jpg";
 import logoss from "../asset/img/Engtern_logo.png";
 import studentsImage from "../asset/img/post.png"; // Added new import
+import Testimonials from "./Testimonial.js";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -56,7 +59,7 @@ const HomePage = () => {
     const whatsappMessage = `Name: ${encodedName}%0AEmail: ${encodedEmail}%0APhone: ${encodedNumber}%0AMessage: ${encodedMessage}`;
 
     window.open(
-      `https://wa.me/+916398542286?text=${whatsappMessage}`,
+      `https://wa.me/+916398542386?text=${whatsappMessage}`,
       "_blank"
     );
 
@@ -88,7 +91,7 @@ const HomePage = () => {
         </svg>
         <h3 className="text-teal-400 text-xl font-semibold mb-4">{level}</h3>
         <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>
-        <button
+        {/* <button
           onClick={() => {
             console.log("Demo button clicked");
             setShowModal(true);
@@ -96,7 +99,7 @@ const HomePage = () => {
           className="bg-teal-500 text-white px-8 py-2 rounded-md hover:bg-teal-600 transition-colors"
         >
           Demo
-        </button>
+        </button> */}
       </motion.div>
     );
   };
@@ -153,282 +156,225 @@ const HomePage = () => {
         return prevIndex >= maxIndex ? 0 : prevIndex + 1;
       });
     };
-
-    // return (
-      // <motion.div
-      //   initial={{ opacity: 0 }}
-      //   animate={{ opacity: 1 }}
-      //   transition={{ duration: 0.5 }}
-      //   className="image-carousel-section py-4 sm:py-2 w-full"
-      // >
-      //   <div className="carousel-container w-full">
-      //     <div
-      //       className="carousel-wrapper relative flex items-center overflow-hidden w-[1200px] sm:w-[1200px] md:w-[1200px] lg:w-[1200px] h-auto"
-      //       onMouseEnter={() => setIsHovered(true)}
-      //       onMouseLeave={() => setIsHovered(false)}
-      //     >
-      //       <button
-      //         className="carousel-button prev absolute left-2 sm:left-4 text-sm sm:text-lg p-1 sm:p-2  z-10"
-      //         onClick={handlePrevious}
-      //       >
-      //         ❮
-      //       </button>
-      //       <motion.div
-      //         className="images-wrapper flex transition-transform duration-300 ease-in-out w-full  "
-      //         animate={{ x: -currentIndex * 100 + "%" }}
-      //         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      //       >
-      //         {images.map((image, index) => (
-      //           <motion.div
-      //             className="image-card flex-shrink-0 w-full"
-      //             key={index}
-      //             whileHover={{ scale: 1.05 }}
-      //             transition={{ duration: 0.2 }}
-      //           >
-      //             <div className="relative w-[400px] sm:w-[340px] md:w-[400px] lg:w-[500px] h-48 sm:h-64 md:h-80 lg:h-96 bg-gray-100 overflow-hidden">
-      //               <img
-      //                 src={image}
-      //                 alt={`Gallery image ${index + 1}`}
-      //                 className="object-contain w-[380px] sm:w-[220px] md:w-[300px] lg:w-[400px] h-auto"
-      //               />
-      //             </div>
-      //           </motion.div>
-      //         ))}
-      //       </motion.div>
-      //       <button
-      //         className="carousel-button next absolute right-2 sm:right-4 text-sm sm:text-lg p-1 sm:p-2 bg-gray-200 rounded-full z-10"
-      //         onClick={handleNext}
-      //       >
-      //         ❯
-      //       </button>
-      //     </div>
-      //     <div className="carousel-dots flex justify-center mt-2 sm:mt-4">
-      //       {Array.from({ length: images.length }).map((_, idx) => (
-      //         <button
-      //           key={idx}
-      //           className={`dot w-2 h-2 sm:w-3 sm:h-3 mx-1 rounded-full ${
-      //             currentIndex === idx ? "bg-black" : "bg-gray-400"
-      //           }`}
-      //           onClick={() => setCurrentIndex(idx)}
-      //         />
-      //       ))}
-      //     </div>
-      //   </div>
-      // </motion.div>
-    // );
   };
 
-  const Testimonials = () => {
-    const testimonials = [
-      {
-        name: "Manoj Mishra",
-        role: "Software testing Engineer",
-        text: "Teaching style is excellent! It took just 2 months of working with Diya Ma'am to see noticeable improvement, and my confidence level has definitely boosted. Amazing, Thank you for your guidance!",
-        image: logoss,
-      },
-      {
-        name: "Muneet Singh",
-        role: "Agency Owner",
-        text: "I love her way of teaching. ... She is humble, polite and co operative",
-        image: logoss,
-      },
-      {
-        name: "Sanjit",
-        role: "Manager",
-        text: "To be honest, the way you explained the topics was very clear. It really helped me understand and learn communication techniques and skills",
-        image: logoss,
-      },
-      {
-        name: "Vinay",
-        role: "DGM Finance",
-        text: "I wanted to take a moment to express my appreciation for the exceptional teaching I received from you. Your ability to break down complex concepts into understandable",
-        image: logoss,
-      },
-      {
-        name: "Suraj sharma",
-        role: "Manager Procurement",
-        text: "It was great experience, lots of things learned and build my confidence.",
-        image: logoss,
-      },
-      {
-        name: "Pranav Kumar",
-        role: "Investment banker",
-        text: "Diya mam is an exceptional teacher whose dedication and passion for teaching are evident in every class. Her clear explanations and engaging teaching style make learning enjoyable and effective. I highly recommend her for learning english communication skills and Personal development skills.",
-        image: logoss,
-      },
-      {
-        name: "Priti shekhawat",
-        role: "Student",
-        text: "My experience of learning English from her is so so good.",
-        image: logoss,
-      },
-    ];
+  // const Testimonials = () => {
+  //   const testimonials = [
+  //     {
+  //       name: "Manoj Mishra",
+  //       role: "Software testing Engineer",
+  //       text: "Teaching style is excellent! It took just 2 months of working with Diya Ma'am to see noticeable improvement, and my confidence level has definitely boosted. Amazing, Thank you for your guidance!",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Muneet Singh",
+  //       role: "Agency Owner",
+  //       text: "I love her way of teaching. ... She is humble, polite and co operative",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Sanjit",
+  //       role: "Manager",
+  //       text: "To be honest, the way you explained the topics was very clear. It really helped me understand and learn communication techniques and skills",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Vinay",
+  //       role: "DGM Finance",
+  //       text: "I wanted to take a moment to express my appreciation for the exceptional teaching I received from you. Your ability to break down complex concepts into understandable",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Suraj sharma",
+  //       role: "Manager Procurement",
+  //       text: "It was great experience, lots of things learned and build my confidence.",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Pranav Kumar",
+  //       role: "Investment banker",
+  //       text: "Diya mam is an exceptional teacher whose dedication and passion for teaching are evident in every class. Her clear explanations and engaging teaching style make learning enjoyable and effective. I highly recommend her for learning english communication skills and Personal development skills.",
+  //       image: logoss,
+  //     },
+  //     {
+  //       name: "Priti shekhawat",
+  //       role: "Student",
+  //       text: "My experience of learning English from her is so so good.",
+  //       image: logoss,
+  //     },
+  //   ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [windowWidth, setWindowWidth] = useState(
-      typeof window !== "undefined" ? window.innerWidth : 1200
-    );
-    const [isHovered, setIsHovered] = useState(false);
+  //   const [currentIndex, setCurrentIndex] = useState(0);
+  //   const [windowWidth, setWindowWidth] = useState(
+  //     typeof window !== "undefined" ? window.innerWidth : 1200
+  //   );
+  //   const [isHovered, setIsHovered] = useState(false);
 
-    useEffect(() => {
-      const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-      };
+  //   useEffect(() => {
+  //     const handleResize = () => {
+  //       setWindowWidth(window.innerWidth);
+  //     };
 
-      if (typeof window !== "undefined") {
-        setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-      }
+  //     if (typeof window !== "undefined") {
+  //       setWindowWidth(window.innerWidth);
+  //       window.addEventListener("resize", handleResize);
+  //     }
 
-      return () => {
-        if (typeof window !== "undefined") {
-          window.removeEventListener("resize", handleResize);
-        }
-      };
-    }, []);
+  //     return () => {
+  //       if (typeof window !== "undefined") {
+  //         window.removeEventListener("resize", handleResize);
+  //       }
+  //     };
+  //   }, []);
 
-    useEffect(() => {
-      if (!isHovered) {
-        const timer = setInterval(() => {
-          setCurrentIndex((prevIndex) => {
-            const maxIndex = testimonials.length - getItemsToShow();
-            return prevIndex >= maxIndex ? 0 : prevIndex + 1;
-          });
-        }, 3000);
+  //   useEffect(() => {
+  //     if (!isHovered) {
+  //       const timer = setInterval(() => {
+  //         setCurrentIndex((prevIndex) => {
+  //           const maxIndex = testimonials.length - getItemsToShow();
+  //           return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+  //         });
+  //       }, 3000);
 
-        return () => clearInterval(timer);
-      }
-    }, [isHovered]);
+  //       return () => clearInterval(timer);
+  //     }
+  //   }, [isHovered]);
 
-    const getItemsToShow = () => {
-      if (windowWidth >= 1024) return 3;
-      if (windowWidth >= 768) return 2;
-      return 1;
-    };
+  //   const getItemsToShow = () => {
+  //     if (windowWidth >= 1024) return 3;
+  //     if (windowWidth >= 768) return 2;
+  //     return 1;
+  //   };
 
-    const handlePrevious = () => {
-      setCurrentIndex((prevIndex) => {
-        const maxIndex = testimonials.length - getItemsToShow();
-        return prevIndex === 0 ? maxIndex : prevIndex - 1;
-      });
-    };
+  //   const handlePrevious = () => {
+  //     setCurrentIndex((prevIndex) => {
+  //       const maxIndex = testimonials.length - getItemsToShow();
+  //       return prevIndex === 0 ? maxIndex : prevIndex - 1;
+  //     });
+  //   };
 
-    const handleNext = () => {
-      setCurrentIndex((prevIndex) => {
-        const maxIndex = testimonials.length - getItemsToShow();
-        return prevIndex >= maxIndex ? 0 : prevIndex + 1;
-      });
-    };
+  //   const handleNext = () => {
+  //     setCurrentIndex((prevIndex) => {
+  //       const maxIndex = testimonials.length - getItemsToShow();
+  //       return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+  //     });
+  //   };
 
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="testimonials-section bg-gray-100 py-8"
-      >
-        <div className="testimonials-container mx-auto px-4 w-full">
-          {/* Added new image section */}
-          <div className="mb-8">
-            <img
-              src={studentsImage}
-              alt="Our Happy Students"
-              className="w-full max-h-[550px] object-cover"
-            />
-          </div>
-        </div>
+  //   return (
+  //     <motion.div
+  //       initial={{ opacity: 0 }}
+  //       animate={{ opacity: 1 }}
+  //       transition={{ duration: 0.5 }}
+  //       className="testimonials-section bg-gray-100 py-8"
+  //     >
+  //       {/* <div className="testimonials-container mx-auto px-4 w-full">
 
-        <h2 className="text-3xl font-bold text-center mb-6">
-          What Our Students Say
-        </h2>
-        <div
-          className="carousel-container relative"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <button
-            className="carousel-button prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-            onClick={handlePrevious}
-          >
-            ❮
-          </button>
-          <motion.div
-            className="testimonials-wrapper flex transition-transform duration-500 ease-in-out"
-            animate={{ x: -currentIndex * (100 / getItemsToShow()) + "%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                className="testimonial-card bg-white rounded-lg shadow-md p-6 mx-2 flex-shrink-0"
-                style={{ width: `calc(${100 / getItemsToShow()}% - 1rem) ` }}
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <div className="testimonial-header flex justify-center items-center mb-4">
-                  <div className="testimonial-image w-24 h-24 bg-gray-200 rounded-full overflow-hidden">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="testimonial-content text-center">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{testimonial.text}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          <button
-            className="carousel-button next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-            onClick={handleNext}
-          >
-            ❯
-          </button>
-        </div>
-        <div className="carousel-dots flex justify-center mt-6">
-          {Array.from({
-            length: testimonials.length - getItemsToShow() + 1,
-          }).map((_, idx) => (
-            <button
-              key={idx}
-              className={`dot w-3 h-3 rounded-full mx-1 ${
-                currentIndex === idx ? "bg-gray-800" : "bg-gray-300"
-              }`}
-              onClick={() => setCurrentIndex(idx)}
-            />
-          ))}
-        </div>
-      </motion.div>
-    );
-  };
+  //         <div className="mb-8">
+  //           <img
+  //             src={studentsImage}
+  //             alt="Our Happy Students"
+  //             className="w-full max-h-[550px] object-cover"
+  //           />
+  //         </div>
+  //       </div> */}
+
+  //       <h2 className="text-3xl font-bold text-center mb-6">
+  //         What Our Students Say
+  //       </h2>
+  //       <div
+  //         className="carousel-container relative"
+  //         onMouseEnter={() => setIsHovered(true)}
+  //         onMouseLeave={() => setIsHovered(false)}
+  //       >
+  //         <button
+  //           className="carousel-button prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+  //           onClick={handlePrevious}
+  //         >
+  //           ❮
+  //         </button>
+  //         <motion.div
+  //           className="testimonials-wrapper flex transition-transform duration-500 ease-in-out"
+  //           animate={{ x: -currentIndex * (100 / getItemsToShow()) + "%" }}
+  //           transition={{ type: "spring", stiffness: 300, damping: 30 }}
+  //         >
+  //           {testimonials.map((testimonial, index) => (
+  //             <motion.div
+  //               className="testimonial-card bg-white rounded-lg shadow-md p-6 mx-2 flex-shrink-0"
+  //               style={{ width: `calc(${100 / getItemsToShow()}% - 1rem) ` }}
+  //               key={index}
+  //               initial={{ opacity: 0, y: 50 }}
+  //               animate={{ opacity: 1, y: 0 }}
+  //               transition={{ duration: 0.3, delay: index * 0.1 }}
+  //             >
+  //               <div className="testimonial-header flex justify-center items-center mb-4">
+  //                 <div className="testimonial-image w-24 h-24 bg-gray-200 rounded-full overflow-hidden">
+  //                   <img
+  //                     src={testimonial.image}
+  //                     alt={testimonial.name}
+  //                     className="w-full h-full object-cover"
+  //                   />
+  //                 </div>
+  //               </div>
+  //               <div className="testimonial-content text-center">
+  //                 <h3 className="text-xl font-semibold mb-2">
+  //                   {testimonial.name}
+  //                 </h3>
+  //                 <p className="text-gray-600 mb-4">{testimonial.text}</p>
+  //                 <p className="text-sm text-gray-500">{testimonial.role}</p>
+  //               </div>
+  //             </motion.div>
+  //           ))}
+  //         </motion.div>
+  //         <button
+  //           className="carousel-button next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+  //           onClick={handleNext}
+  //         >
+  //           ❯
+  //         </button>
+  //       </div>
+  //       <div className="carousel-dots flex justify-center mt-6">
+  //         {Array.from({
+  //           length: testimonials.length - getItemsToShow() + 1,
+  //         }).map((_, idx) => (
+  //           <button
+  //             key={idx}
+  //             className={`dot w-3 h-3 rounded-full mx-1 ${
+  //               currentIndex === idx ? "bg-gray-800" : "bg-gray-300"
+  //             }`}
+  //             onClick={() => setCurrentIndex(idx)}
+  //           />
+  //         ))}
+  //       </div>
+  //     </motion.div>
+  //   );
+  // };
 
   const courses = [
     {
-      level: "Beginner",
+      level: "Truly Personalized Content ",
       description:
-        "Our beginner-friendly lessons break down English into simple, manageable steps, making it easy for you to start speaking confidently.",
+        "Forget one-size-fits-all! We offer truly personalized content. Our expert instructors assess your goals and tailor a dynamic learning path just for you. This means you learn exactly what you need, when you need it. ",
     },
     {
-      level: "Intermediate",
+      level: "Flexible Days & Timings ",
       description:
-        "Our intermediate lessons help you build confidence with simple steps, expanding vocabulary, improving grammar, and making conversations easier.",
+        "Life's busy, so your learning should adapt to you. With us, you get flexible days and timings that fit seamlessly into your week. Learning English public speaking has never been more convenient. ",
     },
     {
-      level: "Advanced",
+      level: "Weekend Batches & Group Discussions ",
       description:
-        "Our advanced lessons refine your skills, focusing on complex grammar, vocabulary, and fluent, natural conversations for confident communication.",
+        "Can't do weekdays? Our popular weekend batches are perfect! Plus, our unique weekend group discussions give you invaluable practice in a supportive environment. Engage, debate, and build fluency in real-time. ",
+    },
+    {
+      level: "More Than Just Lessons  ",
+      description:
+        "At engtern.com, you'll benefit from expert instructors, an interactive learning environment, and a supportive community. We provide a holistic experience to help you achieve your public speaking goals",
     },
   ];
 
   return (
     <div className="bg-cover overflow-hidden">
+      {/* pop up */}
       {showModal && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -446,7 +392,7 @@ const HomePage = () => {
               </button>
               <h2 className="text-sm mb-2">Englern: English Made Easy</h2>
               <h3 className="text-2xl font-bold">Book A Demo Now</h3>
-              <p className="text-lg">@ ₹49</p>
+              {/* <p className="text-lg">@ ₹49</p> */}
             </div>
             <div className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -509,15 +455,15 @@ const HomePage = () => {
                   type="submit"
                   className="w-full py-3 bg-[#208a91] text-white rounded-md hover:bg-[#47bcc5] transition-colors text-bold"
                 >
-                  Submit
+                  Submit Via WhatsApp
                 </button>
               </form>
             </div>
           </div>
         </motion.div>
       )}
-
-      <motion.div
+      {/* contact now */}
+      {/* <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -531,7 +477,68 @@ const HomePage = () => {
           alt="Hero showcasing English courses"
           className="w-full h-full object-cover"
         />
-      </motion.div>
+      </motion.div> */}
+
+      <div className="bg-white py-20 px-6 sm:px-12 md:px-20 lg:px-32">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-14">
+          {/* Left Text Section */}
+          <motion.div
+            initial={{ x: -80, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="w-full md:w-1/2 space-y-5"
+          >
+            <h2 className="text-xl sm:text-4xl font-extrabold text-gray-800 leading-tight tracking-tight">
+              <strong>A Voice That Is Admired By All !</strong>
+            </h2>
+            <p>
+              {" "}
+              Discover the art of effective communication, build confidence,
+              conviction, and clarity in your speech with Engtern's expert- led
+              professional communication and public speaking classes.
+            </p>
+
+            <ul className="space-y-4  text-gray-700">
+              {[
+                "Are you tired of searching a platform for Public Speaking?",
+                "Are you looking for personalized English learning?",
+                "Do you want to see your kids stand out in the crowd?",
+                "Do you want a successful professional career?",
+                "Are you someone looking to overcome stage fear?",
+              ].map((text, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-yellow-600 text-xl font-bold">—</span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+            <h1 className="text-4xl sm:text-3xl font-extrabold text-gray-800 leading-tight tracking-tight">
+              <span className="text-yellow-500">Engtern</span> Got Your Back
+            </h1>
+
+            <Link to="/about">
+              {" "}
+              <button className="mt-6 px-6 py-3 bg-yellow-500 text-white rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300">
+                Explore More
+              </button>
+            </Link>
+          </motion.div>
+
+          {/* Right Image Section */}
+          <motion.div
+            initial={{ x: 80, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-[460px] rounded-xl overflow-hidden "
+          >
+            <img
+              src={heroImg}
+              alt="Hero showcasing English courses"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -550,7 +557,7 @@ const HomePage = () => {
               />
             </div>
             <div className="text-center sm:text-left">
-              <h2 className="text-lg sm:text-xl font-semibold text-teal-500">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-teal-500">
                 Book Your Demo Now
               </h2>
               <p className="text-xs sm:text-sm text-gray-600">
@@ -565,11 +572,11 @@ const HomePage = () => {
             }}
             className="w-full sm:w-auto px-4 sm:px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-white font-medium rounded-md transition-colors duration-500 "
           >
-            Contact Now
+            Contact Via WhatsApp
           </button>
         </div>
       </motion.div>
-
+      {/* courses */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -582,13 +589,15 @@ const HomePage = () => {
               Why learn with our Courses?
             </h2>
             <p className="max-w-3xl mx-auto text-gray-600 text-lg">
-              Interactive & Engaging Lessons: Our courses are designed to keep
+              {/* Interactive & Engaging Lessons: Our courses are designed to keep
               you motivated and actively involved with dynamic exercises,
-              quizzes, and real-world conversations.
+              quizzes, and real-world conversations. */}
+              Ready to transform your English communication skills? Explore our
+              courses today!
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {courses.map((course, index) => (
               <CourseCard
                 key={index}
@@ -602,6 +611,7 @@ const HomePage = () => {
 
       <ImageCarousel />
 
+      {/* <Testimonials /> */}
       <Testimonials />
 
       {/* Message Box */}
@@ -626,7 +636,7 @@ const HomePage = () => {
                 />
               </svg>
             </button>
-            <div className="p-6 text-white">
+            {/* <div className="p-6 text-white">
               <h3 className="text-lg font-medium mb-2">
                 👋 Hi! Have any queries?
               </h3>
@@ -643,7 +653,7 @@ const HomePage = () => {
               >
                 Contact us
               </button>
-            </div>
+            </div> */}
           </div>
         )}
 
@@ -730,7 +740,7 @@ const HomePage = () => {
         )}
 
         {/* Contact Button */}
-        {!showChatBox && !showMessageBox && (
+        {/* {!showChatBox && !showMessageBox && (
           <div className="flex flex-col items-end gap-2">
             <button
               onClick={() => setShowMessageBox(true)}
@@ -745,7 +755,7 @@ const HomePage = () => {
               </svg>
             </button>
           </div>
-        )}
+        )} */}
       </div>
       <style jsx>{`
         .hero-section {

@@ -46,7 +46,7 @@ function Adult() {
   };
 
   // WhatsApp number - replace with your actual WhatsApp number
-  const whatsappNumber = '+916398542286';
+  const whatsappNumber = '+916398542386';
   const whatsappMessage = encodeURIComponent('Hi, I want to know more about Engtern!');
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

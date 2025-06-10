@@ -4,6 +4,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  fontFamily: {
+  poppins: ['Poppins', 'sans-serif'],
+},
+  // plugins: [],
+  plugins: [require('@tailwindcss/typography')],
+
 }
 

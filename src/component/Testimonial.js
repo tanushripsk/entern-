@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import logoss from "../asset/img/Engtern_logo.png";
 import testimonialImage from "../asset/img/testimonial.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Testimonials = () => {
   const testimonials = [
@@ -8,48 +10,50 @@ const Testimonials = () => {
       name: "Manoj Mishra",
       role: "Software testing Engineer",
       text: "Teaching style is excellent! It took just 2 months of working with Diya Ma'am to see noticeable improvement, and my confidence level has definitely boosted. Amazing, Thank you for your guidance!",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Muneet Singh",
       role: "Agency Owner",
       text: "I love her way of teaching. ... She is humble, polite and co operative",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Sanjit",
       role: "Manager",
       text: "To be honest, the way you explained the topics was very clear. It really helped me understand and learn communication techniques and skills",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Vinay",
-      role: "DGM Finance", 
+      role: "DGM Finance",
       text: "I wanted to take a moment to express my appreciation for the exceptional teaching I received from you. Your ability to break down complex concepts into understandable",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Suraj sharma",
       role: "Manager Procurement",
       text: "It was great experience, lots of things learned and build my confidence.",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Pranav Kumar",
       role: "Investment banker",
       text: "Diya mam is an exceptional teacher whose dedication and passion for teaching are evident in every class. Her clear explanations and engaging teaching style make learning enjoyable and effective. I highly recommend her for learning english communication skills and Personal development skills.",
-      image: logoss
+      image: logoss,
     },
     {
       name: "Priti shekhawat",
       role: "Student",
       text: "My experience of learning English from her is so so good.",
-      image: logoss
-    }
+      image: logoss,
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -57,14 +61,14 @@ const Testimonials = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setWindowWidth(window.innerWidth);
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
     }
 
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
       }
     };
   }, []);
@@ -103,7 +107,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: "100%" }}>
       <style>
         {`
           .hero-section {
@@ -175,6 +179,7 @@ const Testimonials = () => {
             padding: 2rem;
             flex: 0 0 calc(33.333% - 1rem);
             margin-right: 1rem;
+            height:420px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 0.5s ease-out;
           }
@@ -194,7 +199,7 @@ const Testimonials = () => {
             width: 4rem;
             height: 4rem;
             margin-right: 1rem;
-            animation: rotateIn 1s ease-out;
+            // animation: rotateIn 1s ease-out;
           }
 
           .testimonial-image img {
@@ -439,61 +444,82 @@ const Testimonials = () => {
         `}
       </style>
 
-      <div className="hero-section">
-        <img
-          src={testimonialImage}
-          alt=""
-          className="hero-image"
-        />
-        <div className="hero-content">
-         
-        </div>
-      </div>
+      {/* <div className="hero-section">
+        <img src={testimonialImage} alt="" className="hero-image" />
+        <div className="hero-content"></div>
+      </div> */}
 
       <div className="testimonials-section">
-      <h2 className="text-3xl font-bold text-center mb-6">What Our Students Say</h2>
+        <h2 className="text-3xl font-bold text-center mb-6">
+          What Our Clients Say About Us
+        </h2>
         <div className="testimonials-container">
-          <div 
+          <div
             className="carousel-container"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <button className="carousel-button prev" onClick={handlePrevious}>❮</button>
-            <div 
+            <button className="carousel-button prev" onClick={handlePrevious}>
+              ❮
+            </button>
+            <div
               className="testimonials-wrapper"
               style={{
-                transform: `translateX(-${currentIndex * (100 / getItemsToShow())}%)`
+                transform: `translateX(-${
+                  currentIndex * (100 / getItemsToShow())
+                }%)`,
               }}
             >
               {testimonials.map((testimonial, index) => (
-                <div 
-                  className="testimonial-card" 
-                  key={index}
-                >
+                <div className="testimonial-card" key={index}>
+                  <div className="flex justify-center mb-2">
+                    <FontAwesomeIcon
+                      icon={faQuoteLeft}
+                      className="text-yellow-500 text-2xl"
+                    />
+                  </div>
+                  <div className="testimonial-content">
+                    <p className="testimonial-text">{testimonial.text}</p>
+                    {/* <p className="testimonial-role">{testimonial.role}</p> */}
+                  </div>
                   <div className="testimonial-header w-full flex justify-center items-center">
-                    <div className="testimonial-image flex justify-center items-center bg-gray-100 rounded-full" style={{ width: "150px", height: "150px" }}>
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name} 
-                        style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }}
+                    {/* <div
+                      className="testimonial-image flex justify-center items-center bg-gray-100 rounded-full"
+                      style={{ width: "100px", height: "100px" }}
+                    > */}
+                    <div
+                      className="testimonial-image flex justify-center items-center bg-gray-100 rounded-full"
+                      style={{ width: "100px", height: "100px" }}
+                    >
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                        }}
                       />
                     </div>
                   </div>
-                  <div className="testimonial-content">
-                    <h3>{testimonial.name}</h3>
-                    <p className="testimonial-text">{testimonial.text}</p>
-                    <p className="testimonial-role">{testimonial.role}</p>
-                  </div>
+                  <p className="testimonial-role">
+                    <center>{testimonial.name}</center>
+                  </p>
                 </div>
               ))}
             </div>
-            <button className="carousel-button next" onClick={handleNext}>❯</button>
+            <button className="carousel-button next" onClick={handleNext}>
+              ❯
+            </button>
           </div>
           <div className="carousel-dots">
-            {Array.from({ length: testimonials.length - getItemsToShow() + 1 }).map((_, idx) => (
+            {Array.from({
+              length: testimonials.length - getItemsToShow() + 1,
+            }).map((_, idx) => (
               <button
                 key={idx}
-                className={`dot ${currentIndex === idx ? 'active' : ''}`}
+                className={`dot ${currentIndex === idx ? "active" : ""}`}
                 onClick={() => setCurrentIndex(idx)}
               />
             ))}
@@ -505,4 +531,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-

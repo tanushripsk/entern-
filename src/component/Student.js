@@ -1,65 +1,169 @@
-import React from 'react';
+import React from "react";
+import CurriculumImage from "../asset/img/Curriculum.png";
 
 const StudentPage = () => {
   return (
-    <div className="student-page">
+    <div className="student-wrapper">
+      {/* Hero Section */}
       <div className="hero-section">
-        <div className="hero-content">
-          <h1>Student</h1>
-          {/* <p className="breadcrumb">
-            <span>
-              <a href="/" className="hover-underline">
-                Home
-              </a>
-            </span>
-            <span className="separator">›</span>
-            <span>
-              <a href="/join/student" className="hover-underline">
-                Student
-              </a>
-            </span>
-          </p> */}
+        <img
+          src={CurriculumImage}
+          alt="Curriculum Banner"
+          className="hero-image"
+        />
+        <div className="hero-overlay">
+          <h1 className="hero-title">Join Us as a Student </h1>
         </div>
       </div>
 
+      {/* Wave Divider */}
+      <svg
+        className="wave"
+        viewBox="0 0 1440 150"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#ffffff"
+          d="M0,96L60,90.7C120,85,240,75,360,74.7C480,75,600,85,720,96C840,107,960,117,1080,106.7C1200,96,1320,64,1380,48L1440,32L1440,160L0,160Z"
+        ></path>
+      </svg>
+
+      {/* Main Content */}
+      <div className="content">
+        <p>
+          Ready to transform your English communication and public speaking
+          skills? Whether you're aiming for career growth, academic success, or
+          just greater confidence, <strong>Engtern</strong> is your ideal partner. Benefit from
+          personalized content, flexible schedules, and engaging weekend
+          sessions right here in Srinagar. Unlock your potential and speak with
+          impact. <strong>Enroll in a course today!!</strong>
+        </p>
+
+        <div className="contact-wrapper">
+          <div className="contact-card">
+            <h3>Contact Us</h3>
+            <p>
+              📞 <strong>+91 6398542386</strong>
+            </p>
+            <p>
+              📧 <strong>engtern2025@gmail.com</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Wave */}
+      <svg
+        className="wave-bottom"
+        viewBox="0 0 1440 150"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#facc15"
+          d="M0,32L60,37.3C120,43,240,53,360,80C480,107,600,149,720,160C840,171,960,149,1080,117.3C1200,85,1320,43,1380,21.3L1440,0L1440,160L0,160Z"
+        ></path>
+      </svg>
+
       <style jsx>{`
-        .student-page {
+        .student-wrapper {
+          width: 100%;
+          overflow-x: hidden;
+        }
+
+        .hero-section {
+          position: relative;
+          height: 300px;
           width: 100%;
         }
-        .hero-section {
-          background-color: #3cc0c7;
-          padding: 4rem 1rem;
+
+        .hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.7)
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-title {
+          color: white;
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
           text-align: center;
-          height: 400px;
-            margin-top: 20px;
         }
-        .hero-content {
-          max-width: 1280px;
-          margin: 0 auto;
+
+        .wave {
+          margin-top: -1px;
+          width: 100%;
         }
-        .hero-content h1 {
-          font-size: 3.75rem;
-          font-weight: 800;
-          color: white;
-          margin-top: 50px
+
+        .content {
+          background: white;
+          padding: 1.5rem 1rem 2rem;
+          max-width: 1000px;
+          margin: -40px auto 0;
+          text-align: justify;
+          font-size: 1.125rem;
+          color: #444;
         }
-        .breadcrumb {
-          font-size: 0.875rem;
-          color: white;
+
+        .contact-wrapper {
+          display: flex;
+          justify-content: center;
+          margin-top: 2rem;
         }
-        .hover-underline:hover {
-          text-decoration: underline;
+
+        .contact-card {
+          background: linear-gradient(to right, #fef9c3, #fcd34d);
+          border-radius: 12px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          padding: 1.5rem;
+          text-align: center;
+          width: 250px;
         }
-        .separator {
-          margin: 0 0.25rem;
+
+        .contact-card h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: #333;
         }
-        a {
-          color: white;
-          text-decoration: none;
+
+        .contact-card p {
+          margin: 0.25rem 0;
+          font-size: 1rem;
         }
-        @media (max-width: 768px) {
-          .hero-content h1 {
-            font-size: 2.5rem;
+
+        .wave-bottom {
+          width: 100%;
+          margin-top: -1px;
+        }
+
+        @media (min-width: 768px) {
+          .hero-title {
+            font-size: 3.5rem;
+          }
+
+          .content {
+            padding: 2.5rem 3rem;
+            margin-top: -60px;
+          }
+
+          .contact-card {
+            padding: 2rem;
           }
         }
       `}</style>
@@ -68,4 +172,3 @@ const StudentPage = () => {
 };
 
 export default StudentPage;
-

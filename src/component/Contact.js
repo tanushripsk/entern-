@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import contactBgImage from '../asset/img/contact.png';
-import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import contactBgImage from "../asset/img/contact.png";
+import contactImage from "../asset/img/contactus.png";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    number: '',
-    message: ''
+    name: "",
+    email: "",
+    number: "",
+    message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Form submitted:', formData);
-    
+    console.log("Form submitted:", formData);
+
     // Prepare WhatsApp message
-    const whatsappNumber = '+916398542286'; // Replace with your WhatsApp number
+    const whatsappNumber = "+916398542386"; // Replace with your WhatsApp number
     const message = `Name: ${formData.name}%0AEmail: ${formData.email}%0ANumber: ${formData.number}%0AMessage: ${formData.message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-    
+
     // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, "_blank");
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="teacher-page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -41,26 +42,23 @@ function Contact() {
     >
       <div className="hero-section">
         <div className="hero-overlay"></div>
-        <motion.div 
+        <motion.div
           className="hero-content"
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-        >
-       
-          
-        </motion.div>
+        ></motion.div>
       </div>
 
       {/* Contact Info Section */}
-      <motion.div 
+      <motion.div
         className="container"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <div className="contact-info">
-          {/* Address */}
+        {/* <div className="contact-info">
+       
           <motion.div 
             className="info-item"
             whileHover={{ scale: 1.05 }}
@@ -73,7 +71,7 @@ function Contact() {
             <p>Kamteshwar, Sonegaon Garhwal, Pauri ,<br />Uttarakhand, 246174</p>
           </motion.div>
 
-          {/* Mail */}
+       
           <motion.div 
             className="info-item"
             whileHover={{ scale: 1.05 }}
@@ -86,7 +84,7 @@ function Contact() {
             <p>diyapart142@gmail.com</p>
           </motion.div>
 
-          {/* Phone */}
+       
           <motion.div 
             className="info-item"
             whileHover={{ scale: 1.05 }}
@@ -98,12 +96,12 @@ function Contact() {
             <h3>PHONE</h3>
             <p>+91 6398542286</p>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Contact Form and Map Section */}
         <div className="form-map-container">
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             className="contact-form"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -152,41 +150,48 @@ function Contact() {
           </motion.div>
 
           {/* Map */}
-          <motion.div 
+          {/* <motion.div 
             className="map-container"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44223.56452436935!2d78.75088253412049!3d30.141362951205636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909a476b13ca115%3A0xa30049354e9659ca!2sPauri%2C%20Uttarakhand%20246001!5e0!3m2!1sen!2sin!4v1735969863091!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </motion.div>
+            <p>Hello</p>
+            
+          </motion.div> */}
+          {/* <img src="../../asset/img/contactus.png" alt="Contact Us" /> */}
+          <img src={contactImage} alt="Contact Us" />
         </div>
       </motion.div>
+
+      <div className="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44223.56452436935!2d78.75088253412049!3d30.141362951205636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909a476b13ca115%3A0xa30049354e9659ca!2sPauri%2C%20Uttarakhand%20246001!5e0!3m2!1sen!2sin!4v1735969863091!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
 
       <style jsx>{`
         .teacher-page {
           width: 100%;
         }
-        .hero-section {
-          position: relative;
-          height: 400px;
-          margin-top: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          background-image: url(${contactBgImage});
-          background-size: cover;
-          background-position: center;
-        }
+        // .hero-section {
+        //   position: relative;
+        //   height: 400px;
+        //   margin-top: 20px;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   text-align: center;
+        //   background-image: url(${contactBgImage});
+        //   background-size: cover;
+        //   background-position: center;
+        // }
         .hero-overlay {
           position: absolute;
           top: 0;
@@ -235,7 +240,7 @@ function Contact() {
         .icon-wrapper {
           width: 3rem;
           height: 3rem;
-          background-color: #00A6A9;
+          background-color: #00a6a9;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -263,6 +268,7 @@ function Contact() {
         .contact-form {
           background-color: #f3e8ff;
           padding: 2rem;
+          height:440px;
           border-radius: 0.5rem;
         }
         .contact-form form {
@@ -281,11 +287,11 @@ function Contact() {
         .contact-form input:focus,
         .contact-form textarea:focus {
           outline: none;
-          border-color: #6C5CE7;
+          border-color: #6c5ce7;
           box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
         }
         .contact-form button {
-          background-color: #6C5CE7;
+          background-color: #6c5ce7;
           color: white;
           padding: 0.75rem 1.5rem;
           border: none;
@@ -295,7 +301,7 @@ function Contact() {
           transition: background-color 0.3s;
         }
         .contact-form button:hover {
-          background-color: #5A4ED1;
+          background-color: #5a4ed1;
         }
         .map-container {
           height: 400px;
@@ -328,7 +334,7 @@ function Contact() {
 
         @media (max-width: 768px) {
           .hero-section {
-            height: 300px;
+            height: 0px;
           }
           .hero-content h1 {
             font-size: 2.5rem;
@@ -346,7 +352,7 @@ function Contact() {
 
         @media (max-width: 480px) {
           .hero-section {
-            height: 200px;
+            height: 5px;
           }
           .hero-content h1 {
             font-size: 2rem;
@@ -358,8 +364,13 @@ function Contact() {
           .contact-form textarea {
             padding: 0.5rem 0.75rem;
           }
+            .contact-form {
+         
+          height:400px;
+       
+        }
           .map-container {
-            height: 300px;
+            height: 400px;
           }
         }
       `}</style>
@@ -368,4 +379,3 @@ function Contact() {
 }
 
 export default Contact;
-
